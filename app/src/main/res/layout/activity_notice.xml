@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NoticeActivity">
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="個人資料收集注意事項"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#100F0F"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="1. 收集範圍："
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#100F0F" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="我們將收集您的姓名、電子郵件地址、身份證號碼、聯絡地址等個人資訊。"
+                android:textColor="#100F0F" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="2. 收集目的："
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#100F0F" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="這些資訊將用於身份驗證、填寫地方政府設置之交通違規檢舉網頁，協助您完成網路舉報程序。"
+                android:textColor="#100F0F" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="3. 服務範圍："
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#100F0F" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="本服務僅限具有中華民國身份證或居留證者使用。"
+                android:textColor="#100F0F" />
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="4. 資訊安全："
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#100F0F" />
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="我們致力於保護您的個人資訊安全，不會授權訪問、洩露、竄改或毀損您的個人資訊。"
+                android:textColor="#100F0F" />
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="5. 資訊使用："
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#100F0F" />
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="我們將僅在達成收集目的所需的範圍內使用您的個人資訊，不會將其用於其他用途或提供給第三方，除非事先獲得您的同意或法律規定。"
+                android:textColor="#100F0F" />
+
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="6. 資訊保存："
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#100F0F" />
+
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="我們將在實現收集目的所需的最短期間內保存您的個人資訊，並在法律允許的範圍內，應您的要求刪除或匿名化處理您的個人資訊。"
+                android:textColor="#100F0F" />
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="7. 權利保障："
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#100F0F" />
+
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="您有權查詢、更正或刪除您的個人資訊，並可隨時撤回對我們處理您個人資訊的同意。"
+                android:textColor="#100F0F" />
+
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/textView22"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="同意事項  "
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#100F0F" />
+
+            <CheckBox
+                android:id="@+id/checkBox_confirm1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="我已詳細閱讀並理解上述收集個人資訊的注意事項，並同意收集、處理和使用我的個人資訊，具體包括但不限於我的姓名、電子郵件地址和證件號碼。" />
+
+            <TextView
+                android:id="@+id/textView24"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <CheckBox
+                android:id="@+id/checkBox_confirm2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="我了解這些資訊將用於身份驗證、填寫地方政府設置之交通違規檢舉網頁，協助我完成網路舉報程序。我確認我持有中華民國身份證或居留證，並了解我有權查詢、更正或刪除我的個人資訊，並可隨時撤回本同意書。" />
+
+            <TextView
+                android:id="@+id/textView23"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <Button
+                android:id="@+id/go_register"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/button_background"
+                android:text="前往注冊"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/textView44"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:visibility="invisible" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
