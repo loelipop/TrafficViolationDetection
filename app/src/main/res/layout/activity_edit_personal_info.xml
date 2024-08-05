@@ -5,30 +5,18 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PersonalInfoActivity">
-
-    <TextView
-        android:id="@+id/textView28"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="個人資訊"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="#100F0F"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    tools:context=".EditPersonalInfoActivity">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:scrollbars="none"
-        app:layout_constraintTop_toBottomOf="@+id/textView28">
+        app:layout_constraintTop_toBottomOf="@+id/textView52">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -36,7 +24,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView33"
+                android:id="@+id/textView53"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -45,22 +33,22 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="#100F0F" />
 
-            <TextView
-                android:id="@+id/textViewName"
+            <EditText
+                android:id="@+id/EditName"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="6dp"
                 android:layout_marginEnd="16dp"
                 android:background="@drawable/edit_text_background"
-                android:padding="15dp"
+                android:hint="請輸入您的姓名"
                 android:text="羅駿祥"
                 android:textColor="#100F0F"
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/textView37"
-                android:layout_width="match_parent"
+                android:id="@+id/textView55"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
@@ -69,7 +57,7 @@
                 android:textColor="#100F0F" />
 
             <TextView
-                android:id="@+id/tvGender"
+                android:id="@+id/Gender"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginStart="16dp"
@@ -78,7 +66,7 @@
                 android:background="@drawable/edit_text_background"
                 android:padding="15dp"
                 android:text="男"
-                android:textColor="#100F0F"
+                android:textColor="@color/material_dynamic_neutral70"
                 android:textSize="18sp" />
 
             <TextView
@@ -92,7 +80,7 @@
                 android:textColor="#100F0F" />
 
             <TextView
-                android:id="@+id/textViewIDchoice"
+                android:id="@+id/IDchoice"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginStart="16dp"
@@ -101,7 +89,7 @@
                 android:background="@drawable/edit_text_background"
                 android:padding="15dp"
                 android:text="居留證"
-                android:textColor="#100F0F"
+                android:textColor="@color/material_dynamic_neutral70"
                 android:textSize="18sp" />
 
             <TextView
@@ -115,7 +103,7 @@
                 android:textColor="#100F0F" />
 
             <TextView
-                android:id="@+id/textViewIDnum"
+                android:id="@+id/IDnum"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginStart="16dp"
@@ -124,11 +112,11 @@
                 android:background="@drawable/edit_text_background"
                 android:padding="15dp"
                 android:text="B800123456"
-                android:textColor="#100F0F"
+                android:textColor="@color/material_dynamic_neutral70"
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/textView42"
+                android:id="@+id/textView58"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -137,21 +125,21 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="#100F0F" />
 
-            <TextView
-                android:id="@+id/textViewAddress"
+            <EditText
+                android:id="@+id/EditAddress"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="6dp"
                 android:layout_marginEnd="16dp"
                 android:background="@drawable/edit_text_background"
-                android:padding="15dp"
+                android:hint="請輸入您的地址"
                 android:text="臺中市西屯區福上巷216弄3號312室"
                 android:textColor="#100F0F"
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/textView48"
+                android:id="@+id/textView60"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -160,21 +148,21 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="#100F0F" />
 
-            <TextView
-                android:id="@+id/textViewPhone"
+            <EditText
+                android:id="@+id/EditPhone"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="6dp"
                 android:layout_marginEnd="16dp"
                 android:background="@drawable/edit_text_background"
-                android:padding="15dp"
+                android:hint="請輸入您的聯絡電話"
                 android:text="0900061644"
                 android:textColor="#100F0F"
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/textView50"
+                android:id="@+id/textView62"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -184,7 +172,7 @@
                 android:textColor="#100F0F" />
 
             <TextView
-                android:id="@+id/tvEmail"
+                android:id="@+id/Email"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginStart="16dp"
@@ -193,42 +181,41 @@
                 android:background="@drawable/edit_text_background"
                 android:padding="15dp"
                 android:text="loejunxiang@gmail.com"
-                android:textColor="#100F0F"
+                android:textColor="@color/material_dynamic_neutral70"
                 android:textSize="18sp" />
 
+            <TextView
+                android:id="@+id/EditEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="更改登入賬號資訊"
+                android:textColor="#3F51B5" />
+
             <Button
-                android:id="@+id/logout"
+                android:id="@+id/EditInfo"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                android:background="@drawable/red_button"
-                android:text="登出"
+                android:background="@drawable/button_background"
+                android:text="確認更改"
                 android:textColor="@color/white" />
         </LinearLayout>
     </ScrollView>
 
-    <ImageButton
-        android:id="@+id/back"
+    <TextView
+        android:id="@+id/textView52"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
-        android:background="#00FFFFFF"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/back_button" />
-
-    <ImageButton
-        android:id="@+id/editInfo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#00FFFFFF"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
+        android:text="更改個人資訊"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#100F0F"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/editbutton" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

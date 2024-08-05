@@ -157,6 +157,7 @@ public class RegisterActivity extends AppCompatActivity {
                         Toast.makeText(RegisterActivity.this, "個人資料上傳成功", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent();
                         intent.setClass(RegisterActivity.this, MainActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         RegisterActivity.this.startActivity(intent);
                         finish();
                     }

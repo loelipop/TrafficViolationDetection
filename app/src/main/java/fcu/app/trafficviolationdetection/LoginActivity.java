@@ -49,15 +49,35 @@ public class LoginActivity extends AppCompatActivity {
             return insets;
         });
 
+        mAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
+        FirebaseUser user = mAuth.getCurrentUser();
+
+        if(user != null){
+            String user_id = user.getUid();
+            db.collection("users").document(user_id).get()
+                    .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                            if (task.isSuccessful()){
+                                DocumentSnapshot document = task.getResult();
+                                if (document.exists()){
+                                    Intent intent = new Intent();
+                                    intent.setClass(LoginActivity.this, MainActivity.class);
+                                    LoginActivity.this.startActivity(intent);
+                                    finish();
+                                }
+                            }
+                        }
+                    });
+        }
+
         email = findViewById(R.id.editTextEmail);
         password = findViewById(R.id.editTextPassword);
         ShowNotPassword = findViewById(R.id.showpassword);
         Login = findViewById(R.id.login);
         ForgetPass = findViewById(R.id.forgetpassword);
         Register = findViewById(R.id.register);
-        mAuth = FirebaseAuth.getInstance();
-        FirebaseUser curent_user = mAuth.getCurrentUser();
-        db = FirebaseFirestore.getInstance();
 
         View.OnClickListener plistener = new View.OnClickListener() {
             @Override
@@ -125,21 +145,13 @@ public class LoginActivity extends AppCompatActivity {
                     Intent intent = new Intent();
                     intent.setClass(LoginActivity.this, NoticeActivity.class);
                     LoginActivity.this.startActivity(intent);
-                    finish();
                 }
             }
         };
-        if(curent_user != null){
-            Intent intent = new Intent();
-            intent.setClass(LoginActivity.this, MainActivity.class);
-            LoginActivity.this.startActivity(intent);
-            finish();
-        }else{
-            ShowNotPassword.setOnClickListener(plistener);
-            Login.setOnClickListener(listener);
-            ForgetPass.setOnClickListener(listener);
-            Register.setOnClickListener(listener);
-        }
 
+        ShowNotPassword.setOnClickListener(plistener);
+        Login.setOnClickListener(listener);
+        ForgetPass.setOnClickListener(listener);
+        Register.setOnClickListener(listener);
     }
 }
