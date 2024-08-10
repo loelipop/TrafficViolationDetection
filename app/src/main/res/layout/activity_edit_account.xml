@@ -7,51 +7,56 @@
     android:layout_height="match_parent"
     tools:context=".EditAccountActivity">
 
-    <Button
-        android:id="@+id/EditAccount"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginStart="16dp"
+    <TextView
+        android:id="@+id/textView35"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="密碼必須由英文字母和數字組合而成"
+        app:layout_constraintEnd_toEndOf="@+id/textView31"
+        app:layout_constraintStart_toStartOf="@+id/textView31"
+        app:layout_constraintTop_toBottomOf="@+id/textView31" />
+
+    <TextView
+        android:id="@+id/textView31"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/button_background"
-        android:text="確認更改"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:text="密碼必須要大於8位"
+        app:layout_constraintEnd_toEndOf="@+id/ConfirmNewPass"
+        app:layout_constraintStart_toStartOf="@+id/ConfirmNewPass"
         app:layout_constraintTop_toBottomOf="@+id/ConfirmNewPass" />
 
     <EditText
-        android:id="@+id/ConfirmNewPass"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/edit_text_background"
-        android:hint="請再次輸入您的新賬號密碼"
-        android:textColor="#100F0F"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/NewPassword" />
-
-    <EditText
-        android:id="@+id/NewPassword"
+        android:id="@+id/oldPassword"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="6dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/edit_text_background"
-        android:hint="請輸入您的新賬號密碼"
+        android:inputType="textPassword"
+        android:hint="請輸入您的舊賬號密碼"
         android:textColor="#100F0F"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView64" />
+
+    <Button
+        android:id="@+id/editPassword"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/button_background"
+        android:text="更改賬號密碼"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView35" />
 
     <TextView
         android:id="@+id/textView64"
@@ -65,27 +70,62 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/EditEmail" />
 
+    <EditText
+        android:id="@+id/newPassword"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/edit_text_background"
+        android:inputType="textPassword"
+        android:hint="請輸入您的新賬號密碼"
+        android:textColor="#100F0F"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/oldPassword" />
+
+    <EditText
+        android:id="@+id/ConfirmNewPass"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/edit_text_background"
+        android:inputType="textPassword"
+        android:hint="請再次輸入您的新賬號密碼"
+        android:textColor="#100F0F"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newPassword" />
+
     <TextView
         android:id="@+id/textView61"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
+
         android:text="電子郵件："
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="#100F0F"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView54" />
 
-    <EditText
+    <TextView
         android:id="@+id/EditEmail"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="6dp"
         android:layout_marginEnd="16dp"
+        android:padding="15dp"
         android:background="@drawable/edit_text_background"
-        android:hint="請輸入您的Email"
         android:text="loejunxiang@gmail.com"
         android:textColor="#100F0F"
         android:textSize="18sp"
@@ -99,7 +139,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="更改賬號資訊"
+        android:text="更改賬號密碼"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="#100F0F"
         app:layout_constraintEnd_toEndOf="parent"

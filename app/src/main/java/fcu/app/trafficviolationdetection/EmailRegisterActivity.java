@@ -155,7 +155,7 @@ public class EmailRegisterActivity extends AppCompatActivity {
     }
 
     // 定义接口用于回调
-    private interface OnEmailCheckListener {
+    interface OnEmailCheckListener {
         void onEmailCheck(boolean emailExists);
     }
 }

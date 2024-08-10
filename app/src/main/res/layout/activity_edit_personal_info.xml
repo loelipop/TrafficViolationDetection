@@ -190,7 +190,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                android:text="更改登入賬號資訊"
+                android:text="更改賬號密碼"
                 android:textColor="#3F51B5" />
 
             <Button
