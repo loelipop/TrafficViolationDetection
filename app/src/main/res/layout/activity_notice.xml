@@ -182,7 +182,7 @@
                 android:id="@+id/go_register"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:background="@drawable/button_background"
+                android:background="@drawable/blue_button"
                 android:text="前往注冊"
                 android:textColor="@color/white" />
 

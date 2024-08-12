@@ -3,6 +3,6 @@
     android:color="?android:attr/colorControlHighlight">
 
     <!-- 自定义按钮背景 -->
-    <item android:drawable="@drawable/back_img" />
+    <item android:drawable="@drawable/edit_img" />
 
 </ripple>
