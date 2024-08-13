@@ -51,27 +51,6 @@ public class LoginActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
-        FirebaseUser user = mAuth.getCurrentUser();
-
-        if(user != null){
-            String user_id = user.getUid();
-            db.collection("users").document(user_id).get()
-                    .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                        @Override
-                        public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                            if (task.isSuccessful()){
-                                DocumentSnapshot document = task.getResult();
-                                if (document.exists()){
-                                    Intent intent = new Intent();
-                                    intent.setClass(LoginActivity.this, MainActivity.class);
-                                    LoginActivity.this.startActivity(intent);
-                                    finish();
-                                }
-                            }
-                        }
-                    });
-        }
-
         email = findViewById(R.id.editTextEmail);
         password = findViewById(R.id.editTextPassword);
         ShowNotPassword = findViewById(R.id.showpassword);

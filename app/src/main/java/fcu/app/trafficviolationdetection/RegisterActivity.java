@@ -1,6 +1,7 @@
 package fcu.app.trafficviolationdetection;
 
 import android.content.Intent;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -8,6 +9,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+import android.widget.ScrollView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -41,6 +43,8 @@ public class RegisterActivity extends AppCompatActivity {
     private String user_gender;
     private String ID_choice;
     private Map<String, Object> user = new HashMap<>();
+    private boolean isRegistered = false;
+
     private boolean checkCitizenID(String inputString) {
         inputString = inputString.toUpperCase();
         if (!inputString.matches("^[A-Z][1-2][0-9]{8}$")) return false;
@@ -154,6 +158,7 @@ public class RegisterActivity extends AppCompatActivity {
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
+                        isRegistered = true;
                         Toast.makeText(RegisterActivity.this, "個人資料上傳成功", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent();
                         intent.setClass(RegisterActivity.this, MainActivity.class);
@@ -167,7 +172,6 @@ public class RegisterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_register);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -260,6 +264,29 @@ public class RegisterActivity extends AppCompatActivity {
         Gender.setOnCheckedChangeListener(rgListener);
         IdChoice.setOnCheckedChangeListener(rgListener);
         Confirm_Register.setOnClickListener(listener);
+
+
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        mAuth.signOut();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (!isRegistered && !isFinishing()){
+            mAuth.signOut();
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (!isRegistered){
+            mAuth.signOut();
+        }
+    }
 }
