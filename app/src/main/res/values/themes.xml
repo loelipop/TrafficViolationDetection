@@ -6,4 +6,12 @@
     </style>
 
     <style name="Theme.TrafficViolationDetection" parent="Base.Theme.TrafficViolationDetection" />
+    <style name="Theme.TrafficViolationDetection.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.TrafficViolationDetection.AppBarOverlay"
+        parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.TrafficViolationDetection.PopupOverlay"
+        parent="ThemeOverlay.AppCompat.Light" />
 </resources>
