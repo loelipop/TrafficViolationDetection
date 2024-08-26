@@ -8,12 +8,13 @@
     tools:context=".CarsLog">
 
     <TextView
-        android:id="@+id/textView38"
+        android:id="@+id/textViewabc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="違規車輛偵測紀錄"
-        android:textAppearance="TextAppearance.AppCompat.Display1"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#100F0F"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -38,14 +39,15 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView38">
+        app:layout_constraintTop_toBottomOf="@+id/textViewabc">
 
         <RadioButton
             android:id="@+id/radioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="未檢舉"
-            android:textAppearance="TextAppearance.AppCompat.Display1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="#100F0F"
             android:textSize="20sp" />
 
         <RadioButton
@@ -53,14 +55,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="已檢舉"
-            android:textAppearance="TextAppearance.AppCompat.Display1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="#100F0F"
             android:textSize="20sp" />
     </RadioGroup>
 
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="10dp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/logs"
+        android:layout_width="409dp"
+        android:layout_height="601dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

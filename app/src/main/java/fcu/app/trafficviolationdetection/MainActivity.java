@@ -3,6 +3,7 @@ package fcu.app.trafficviolationdetection;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 import androidx.activity.EdgeToEdge;
@@ -13,6 +14,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
     private ImageButton PersonalInfo;
+    private Button ViolationLog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,14 +27,23 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
         PersonalInfo = findViewById(R.id.personal_info);
+        ViolationLog = findViewById(R.id.button2);
+
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(MainActivity.this, PersonalInfoActivity.class);
-                MainActivity.this.startActivity(intent);
+                if (v.getId() == R.id.personal_info) {
+                    Intent intent = new Intent();
+                    intent.setClass(MainActivity.this, PersonalInfoActivity.class);
+                    MainActivity.this.startActivity(intent);
+                }else if (v.getId() == R.id.button2){
+                    Intent intent = new Intent();
+                    intent.setClass(MainActivity.this, CarsLog.class);
+                    MainActivity.this.startActivity(intent);
+                }
             }
         };
         PersonalInfo.setOnClickListener(listener);
+        ViolationLog.setOnClickListener(listener);
     }
 }
