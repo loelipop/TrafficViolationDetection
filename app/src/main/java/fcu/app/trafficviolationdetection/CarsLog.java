@@ -68,7 +68,7 @@ public class CarsLog extends AppCompatActivity {
             String userId = currentUser.getUid();
             checkUserscarLog(userId);
         }else{
-            Toast.makeText(this, "用戶沒有登入", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "用戶沒有登入！", Toast.LENGTH_SHORT).show();
         }
 
 
