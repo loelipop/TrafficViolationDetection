@@ -1,7 +1,10 @@
 package fcu.app.trafficviolationdetection;
 
 import android.os.Bundle;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 import android.widget.TextView;
 
@@ -38,6 +41,7 @@ public class CarsLog extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseStorage storage;
     private StorageReference storageRef;
+    private ImageButton back;
 
 
 
@@ -61,6 +65,7 @@ public class CarsLog extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
         storage = FirebaseStorage.getInstance();
         storageRef = storage.getReference();
+        back = findViewById(R.id.back);
 
         carsLog = new ArrayList<>();
         FirebaseUser currentUser = mAuth.getCurrentUser();
@@ -75,6 +80,13 @@ public class CarsLog extends AppCompatActivity {
 
         ItemAdapter adapter = new ItemAdapter(this, carsLog);
         item.setAdapter(adapter);
+        View.OnClickListener listener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        };
+        back.setOnClickListener(listener);
     }
 
     private void loadCarLogFromFirestore(List<String> reportIds){

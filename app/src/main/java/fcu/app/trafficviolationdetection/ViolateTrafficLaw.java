@@ -32,5 +32,7 @@ public class ViolateTrafficLaw extends AppCompatActivity {
                 finish();
             }
         };
+
+        backButton.setOnClickListener(listener);
     }
 }

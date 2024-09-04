@@ -154,10 +154,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="可檢舉違規事項"
-        android:textAppearance="TextAppearance.AppCompat.Display1"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#100F0F"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

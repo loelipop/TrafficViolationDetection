@@ -15,6 +15,7 @@ import androidx.core.view.WindowInsetsCompat;
 public class MainActivity extends AppCompatActivity {
     private ImageButton PersonalInfo;
     private Button ViolationLog;
+    private Button ViolateTrafficLaw;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
         });
         PersonalInfo = findViewById(R.id.personal_info);
         ViolationLog = findViewById(R.id.button2);
+        ViolateTrafficLaw = findViewById(R.id.button);
+
 
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
@@ -40,10 +43,15 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent = new Intent();
                     intent.setClass(MainActivity.this, CarsLog.class);
                     MainActivity.this.startActivity(intent);
+                }else if (v.getId() == R.id.button){
+                    Intent intent = new Intent();
+                    intent.setClass(MainActivity.this, ViolateTrafficLaw.class);
+                    MainActivity.this.startActivity(intent);
                 }
             }
         };
         PersonalInfo.setOnClickListener(listener);
         ViolationLog.setOnClickListener(listener);
+        ViolateTrafficLaw.setOnClickListener(listener);
     }
 }
