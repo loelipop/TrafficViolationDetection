@@ -38,7 +38,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView7"
+                android:id="@+id/Point1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="1. 收集範圍："
@@ -46,14 +46,14 @@
                 android:textColor="#100F0F" />
 
             <TextView
-                android:id="@+id/textView8"
+                android:id="@+id/Law1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="我們將收集您的姓名、電子郵件地址、身份證號碼、聯絡地址等個人資訊。"
                 android:textColor="#100F0F" />
 
             <TextView
-                android:id="@+id/textView9"
+                android:id="@+id/Law2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="2. 收集目的："
@@ -61,14 +61,14 @@
                 android:textColor="#100F0F" />
 
             <TextView
-                android:id="@+id/textView10"
+                android:id="@+id/Law3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="這些資訊將用於身份驗證、填寫地方政府設置之交通違規檢舉網頁，協助您完成網路舉報程序。"
                 android:textColor="#100F0F" />
 
             <TextView
-                android:id="@+id/textView11"
+                android:id="@+id/Law4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="3. 服務範圍："
@@ -76,14 +76,14 @@
                 android:textColor="#100F0F" />
 
             <TextView
-                android:id="@+id/textView12"
+                android:id="@+id/Law5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="本服務僅限具有中華民國身份證或居留證者使用。"
                 android:textColor="#100F0F" />
 
             <TextView
-                android:id="@+id/textView13"
+                android:id="@+id/Law6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="4. 資訊安全："
@@ -91,14 +91,14 @@
                 android:textColor="#100F0F" />
 
             <TextView
-                android:id="@+id/textView14"
+                android:id="@+id/Law7"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="我們致力於保護您的個人資訊安全，不會授權訪問、洩露、竄改或毀損您的個人資訊。"
                 android:textColor="#100F0F" />
 
             <TextView
-                android:id="@+id/textView15"
+                android:id="@+id/Law8"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="5. 資訊使用："
@@ -106,14 +106,14 @@
                 android:textColor="#100F0F" />
 
             <TextView
-                android:id="@+id/textView16"
+                android:id="@+id/Law9"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="我們將僅在達成收集目的所需的範圍內使用您的個人資訊，不會將其用於其他用途或提供給第三方，除非事先獲得您的同意或法律規定。"
                 android:textColor="#100F0F" />
 
             <TextView
-                android:id="@+id/textView17"
+                android:id="@+id/Point2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="6. 資訊保存："
@@ -121,14 +121,14 @@
                 android:textColor="#100F0F" />
 
             <TextView
-                android:id="@+id/textView18"
+                android:id="@+id/Law10"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="我們將在實現收集目的所需的最短期間內保存您的個人資訊，並在法律允許的範圍內，應您的要求刪除或匿名化處理您的個人資訊。"
                 android:textColor="#100F0F" />
 
             <TextView
-                android:id="@+id/textView19"
+                android:id="@+id/point3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="7. 權利保障："
@@ -136,7 +136,7 @@
                 android:textColor="#100F0F" />
 
             <TextView
-                android:id="@+id/textView20"
+                android:id="@+id/Law11"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="您有權查詢、更正或刪除您的個人資訊，並可隨時撤回對我們處理您個人資訊的同意。"

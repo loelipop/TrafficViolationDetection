@@ -7,44 +7,136 @@
     android:layout_height="match_parent"
     tools:context=".ViolateTrafficLaw">
 
-    <TextView
-        android:id="@+id/tvd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="未依標線行駛"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="#100F0F"
-        android:textSize="28sp"
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewabcd" />
+        app:layout_constraintTop_toBottomOf="@+id/textView38">
 
-    <TextView
-        android:id="@+id/tva"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="280dp"
-        android:text="任意變換車道"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="#100F0F"
-        android:textSize="28sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewabcd" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tvb"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
-        android:text="未依規定使用燈光"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="#100F0F"
-        android:textSize="28sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewabcd" />
+            <TextView
+                android:id="@+id/Point1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="違規記【1】點："
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#100F0F" />
+
+            <TextView
+                android:id="@+id/Law1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="汽車行駛於一般道路、高速公路、快速公路，不遵使用限制、禁止、行車管制及管理事項之管制規則而有下列行為者："
+                android:textColor="#100F0F" />
+
+            <TextView
+                android:id="@+id/Law2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="未依規定行駛車道。"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#100F0F" />
+
+            <TextView
+                android:id="@+id/Law3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="不依規定使用燈光。"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#100F0F" />
+
+            <TextView
+                android:id="@+id/Law4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="違規減速、臨時停車或停車"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#100F0F" />
+
+            <TextView
+                android:id="@+id/Law5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="未依標誌、標線、號誌指示行車。"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#100F0F" />
+
+            <TextView
+                android:id="@+id/Law6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="汽車駕駛人行車速度超過規定之最高時速，或低於規定之最低時速。"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#100F0F" />
+
+            <TextView
+                android:id="@+id/Law7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="汽車駕駛人駕駛汽車行近未設行車管制號誌之行人穿越道，不減速慢行。 "
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#100F0F" />
+
+            <TextView
+                android:id="@+id/Law8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="在多車道不依規定駕車。 "
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#100F0F" />
+
+            <TextView
+                android:id="@+id/Law9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="任意駛出邊線，或任意跨越兩條車道行駛。 "
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#100F0F" />
+
+            <TextView
+                android:id="@+id/Point2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="違規記【2】點："
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#100F0F" />
+
+            <TextView
+                android:id="@+id/Law10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="裝載貨物超過規定之長度、寬度、高度"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#100F0F" />
+
+            <TextView
+                android:id="@+id/point3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="違規記【3】點："
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#100F0F" />
+
+            <TextView
+                android:id="@+id/Law11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="在道路上蛇行，或以其他危險方式駕車"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#100F0F" />
+
+        </LinearLayout>
+    </ScrollView>
 
     <ImageButton
         android:id="@+id/back"
@@ -57,29 +149,16 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textViewabcd"
+        android:id="@+id/textView38"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="可檢舉違規事項"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="#100F0F"
+        android:textAppearance="TextAppearance.AppCompat.Display1"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tvc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="120dp"
-        android:text="未依規定使用安全帽"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="#100F0F"
-        android:textSize="28sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewabcd" />
 </androidx.constraintlayout.widget.ConstraintLayout>
