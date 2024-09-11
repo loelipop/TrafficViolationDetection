@@ -42,7 +42,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewabc">
 
         <RadioButton
-            android:id="@+id/radioButton"
+            android:id="@+id/radioUnreported"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="未檢舉"
@@ -51,7 +51,7 @@
             android:textSize="20sp" />
 
         <RadioButton
-            android:id="@+id/radioButton2"
+            android:id="@+id/radioReported"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="已檢舉"
