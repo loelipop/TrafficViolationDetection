@@ -101,10 +101,11 @@
         android:id="@+id/EditInfo"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/red_button"
         android:text="檢舉"
         android:textColor="@color/white"
         app:layout_constraintTop_toBottomOf="@+id/law"
         tools:layout_editor_absoluteX="16dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

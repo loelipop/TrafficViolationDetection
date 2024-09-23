@@ -1,7 +1,9 @@
 package fcu.app.trafficviolationdetection;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -39,6 +41,7 @@ public class CarsLogDetail extends AppCompatActivity {
     private TextView location;
     private TextView law;
     private ImageView photo;
+    private Button report;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +60,7 @@ public class CarsLogDetail extends AppCompatActivity {
         location = findViewById(R.id.location);
         law = findViewById(R.id.law);
         photo = findViewById(R.id.photo);
+        report = findViewById(R.id.EditInfo);
 
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
@@ -65,7 +69,17 @@ public class CarsLogDetail extends AppCompatActivity {
             }
         };
 
+        View.OnClickListener listener2 = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(CarsLogDetail.this, ReportWebsite.class);
+                CarsLogDetail.this.startActivity(intent);
+            }
+        };
+
         backbutton.setOnClickListener(listener);
+        report.setOnClickListener(listener2);
 
         FirebaseApp.initializeApp(this);
         mAuth = FirebaseAuth.getInstance();
