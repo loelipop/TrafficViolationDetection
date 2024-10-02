@@ -28,21 +28,33 @@
             android:exported="false" />
         <activity
             android:name=".ReportWebsite"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|screenSize"
             android:exported="false" />
         <activity
             android:name=".items"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|screenSize"
             android:exported="false" />
         <activity
             android:name=".CarsLogDetail"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|screenSize"
             android:exported="false" />
         <activity
             android:name=".CarsLog"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|screenSize"
             android:exported="false" />
         <activity
             android:name=".ViolateTrafficLaw"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|screenSize"
             android:exported="false" /> <!-- Splash Activity is now the launcher activity -->
         <activity
             android:name=".SplashActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|screenSize"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -52,32 +64,50 @@
         </activity>
         <activity
             android:name=".EditAccountActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|screenSize"
             android:exported="false" />
         <activity
             android:name=".EditPersonalInfoActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|screenSize"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".PersonalInfoActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|screenSize"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|screenSize"
             android:exported="false" />
         <activity
             android:name=".EmailRegisterActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|screenSize"
             android:exported="false" />
         <activity
             android:name=".RegisterActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|screenSize"
             android:exported="false"
             android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".NoticeActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|screenSize"
             android:exported="false" />
         <activity
             android:name=".ForgetPasswordActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|screenSize"
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|screenSize"
             android:exported="false" />
     </application>
 

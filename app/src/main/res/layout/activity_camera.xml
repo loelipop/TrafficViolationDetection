@@ -11,34 +11,39 @@
         android:id="@+id/previewView"
         android:layout_width="618dp"
         android:layout_height="0dp"
-        android:layout_margin="8dp"
+        android:layout_margin="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+    </androidx.camera.view.PreviewView>
 
     <TextView
         android:id="@+id/timestamp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_marginStart="5dp"
+        android:padding="4dp"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
-        android:padding="4dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_margin="8dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/previewView"
+        app:layout_constraintStart_toStartOf="@+id/previewView"
+        tools:text="2024-10-2 15:00:00" />
 
     <Button
         android:id="@+id/btnRecord"
-        android:layout_width="78dp"
-        android:layout_height="39dp"
+        android:layout_width="100dp"
+        android:layout_height="80dp"
         android:layout_margin="16dp"
         android:layout_marginStart="8dp"
-        android:background="#4CAF50"
+        android:background="@drawable/green_button"
         android:text="開始錄影"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/previewView"
         app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
