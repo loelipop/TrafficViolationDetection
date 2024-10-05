@@ -2,6 +2,7 @@ package fcu.app.trafficviolationdetection;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,9 +36,15 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder> 
         holder.carPlate.setText(item.getCarPlate());
         holder.carRule.setText(item.getCarRule());
 
+        // 添加日誌輸出以檢查 reportId
+        Log.d("ItemAdapter", "Report ID for position " + position + ": " + item.getReportId());
+
+
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(context, CarsLogDetail.class);
             intent.putExtra("reportId", item.getReportId());
+            // 再次檢查即將傳遞的 reportId
+            Log.d("ItemAdapter", "Sending reportId: " + item.getReportId());
             context.startActivity(intent);
         });
     }

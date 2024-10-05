@@ -2,6 +2,7 @@ package fcu.app.trafficviolationdetection;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -14,20 +15,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.FieldPath;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.bumptech.glide.Glide;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class CarsLogDetail extends AppCompatActivity {
 
@@ -42,6 +39,8 @@ public class CarsLogDetail extends AppCompatActivity {
     private TextView law;
     private ImageView photo;
     private Button report;
+    private Button delete; // Declare delete button
+    private String reportId; // Variable for reportId
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,25 +60,21 @@ public class CarsLogDetail extends AppCompatActivity {
         law = findViewById(R.id.law);
         photo = findViewById(R.id.photo);
         report = findViewById(R.id.EditInfo);
+        delete = findViewById(R.id.DeleteInfo); // Initialize delete button
 
-        View.OnClickListener listener = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
+        backbutton.setOnClickListener(v -> finish());
+        report.setOnClickListener(v -> {
+            Intent intent = new Intent(CarsLogDetail.this, ReportWebsite.class);
+            startActivity(intent);
+        });
+
+        delete.setOnClickListener(v -> {
+            if (reportId != null) {
+                deleteSubCollection(reportId);  // 刪除報告的子集合
+            } else {
+                Toast.makeText(this, "無法找到報告ID", Toast.LENGTH_SHORT).show();
             }
-        };
-
-        View.OnClickListener listener2 = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(CarsLogDetail.this, ReportWebsite.class);
-                CarsLogDetail.this.startActivity(intent);
-            }
-        };
-
-        backbutton.setOnClickListener(listener);
-        report.setOnClickListener(listener2);
+        });
 
         FirebaseApp.initializeApp(this);
         mAuth = FirebaseAuth.getInstance();
@@ -87,76 +82,105 @@ public class CarsLogDetail extends AppCompatActivity {
         storage = FirebaseStorage.getInstance();
         storageRef = storage.getReference();
 
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if (currentUser != null){
-            String userId = currentUser.getUid();
-            checkUserscarLog(userId);
-        }else{
-            Toast.makeText(this, "用戶沒有登入！", Toast.LENGTH_SHORT).show();
+        // Get reportId
+        reportId = getIntent().getStringExtra("reportId");
+        Log.d("CarsLogDetail", "Received reportId: " + reportId); // Check reportId
+
+        if (reportId != null) {
+            loadCarLogFromFirestore(reportId); // Load data using reportId
+        } else {
+            Toast.makeText(this, "Report ID is null", Toast.LENGTH_SHORT).show();
         }
     }
 
-    private void loadCarLogFromFirestore(List<String> reportIds){
+    private void loadCarLogFromFirestore(String reportId) {
         db.collection("report")
-                .whereIn(FieldPath.documentId(), reportIds)
+                .document(reportId) // Use the reportId to query the specific document
                 .get()
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
-                        for (QueryDocumentSnapshot document : task.getResult()) {
+                        DocumentSnapshot document = task.getResult();
+                        if (document != null && document.exists()) {
+                            // Extract data
                             String carPlateStr = document.getString("ViolationsCarElph") + document.getString("ViolationsCarNum");
                             String timeStr = document.getString("Date");
-                            String locationStr = document.getString("ViolationsArea") + document.getString("ViolationsStreet") + document.getString("ViolationsAddress");
+                            String locationStr = document.getString("ViolationsArea") + " " + document.getString("ViolationsStreet") + " " + document.getString("ViolationsAddress");
                             String lawStr = document.getString("Violations");
-                            String reportId = document.getString("reportId");
 
+                            // Update UI
                             carPlate.setText(carPlateStr);
                             time.setText(timeStr);
                             location.setText(locationStr);
                             law.setText(lawStr);
 
+                            // Load image
                             String photoPath = document.getString("ViolationsPic");
                             if (photoPath != null && !photoPath.isEmpty()) {
-                                loadImageFromFirebaseStorage(photoPath); // 調用方法來加載圖片
+                                loadImageFromFirebaseStorage(photoPath);
                             }
+                        } else {
+                            Toast.makeText(CarsLogDetail.this, "No document found", Toast.LENGTH_SHORT).show();
                         }
                     } else {
-                        Toast.makeText(CarsLogDetail.this, "Error getting documents: " + task.getException(), Toast.LENGTH_LONG).show();
-                    }
-                });
-    }
-
-    private void checkUserscarLog(String userId){
-        db.collection("users_report")
-                .whereEqualTo("user_id", userId)
-                .get()
-                .addOnCompleteListener(task -> {
-                    if (task.isSuccessful()){
-                        List<String> users_reportID = new ArrayList<>();
-                        for (QueryDocumentSnapshot document : task.getResult()){
-                            users_reportID.add(document.getString("report_id"));
-                        }
-                        if (users_reportID.isEmpty()){
-                            Toast.makeText(this, "沒有違規記錄", Toast.LENGTH_SHORT).show();
-                        }else {
-                            loadCarLogFromFirestore(users_reportID);
-                        }
-                    }else{
-                        Toast.makeText(this, "發生錯誤", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(CarsLogDetail.this, "Error getting document: " + task.getException(), Toast.LENGTH_LONG).show();
                     }
                 });
     }
 
     private void loadImageFromFirebaseStorage(String photoPath) {
-        // 獲取圖片的 StorageReference
+        // Get the StorageReference for the image
         StorageReference imageRef = FirebaseStorage.getInstance().getReferenceFromUrl(photoPath);
 
-        // 使用 Glide 加載圖片到 ImageView photo 中
+        // Load image into ImageView using Glide
         imageRef.getDownloadUrl().addOnSuccessListener(uri -> {
             Glide.with(this)
-                    .load(uri)  // 使用下載的 URL
-                    .into(photo);  // 將圖片加載到 ImageView (photo)
+                    .load(uri)  // Load the downloaded URL
+                    .into(photo);  // Load image into ImageView (photo)
         }).addOnFailureListener(exception -> {
             Toast.makeText(this, "Failed to load image.", Toast.LENGTH_SHORT).show();
         });
     }
+    // 刪除子集合中的所有文件
+    private void deleteSubCollection(String reportId) {
+        db.collection("report").document(reportId).collection("violations")
+                .get()
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        for (QueryDocumentSnapshot document : task.getResult()) {
+                            // 刪除每個子文件
+                            document.getReference().delete()
+                                    .addOnSuccessListener(aVoid -> {
+                                        Toast.makeText(CarsLogDetail.this, "子集合文件刪除成功", Toast.LENGTH_SHORT).show();
+                                    })
+                                    .addOnFailureListener(e -> {
+                                        Toast.makeText(CarsLogDetail.this, "刪除子集合文件失敗: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                    });
+                        }
+                        // 子集合刪除完畢，刪除父文件
+                        deleteReport(reportId);
+                    } else {
+                        Toast.makeText(CarsLogDetail.this, "獲取子集合文件失敗: " + task.getException(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
+    // 刪除父文件（報告文件）並跳回 CarsLog 頁面
+    private void deleteReport(String reportId) {
+        db.collection("report").document(reportId)
+                .delete()
+                .addOnSuccessListener(aVoid -> {
+                    Toast.makeText(CarsLogDetail.this, "報告刪除成功", Toast.LENGTH_SHORT).show();
+
+                    // 刪除成功後跳轉回 CarsLog 頁面
+                    Intent intent = new Intent(CarsLogDetail.this, CarsLog.class);
+                    startActivity(intent);
+
+                    // 結束當前 CarsLogDetail 活動
+                    finish();
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(CarsLogDetail.this, "刪除報告失敗: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                });
+    }
+
 }
