@@ -41,6 +41,7 @@ public class CarsLogDetail extends AppCompatActivity {
     private Button report;
     private Button delete; // Declare delete button
     private String reportId; // Variable for reportId
+    private String photoPath;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +71,7 @@ public class CarsLogDetail extends AppCompatActivity {
 
         delete.setOnClickListener(v -> {
             if (reportId != null) {
+                deletePhotoFromStorage(photoPath);
                 deleteSubCollection(reportId);  // 刪除報告的子集合
             } else {
                 Toast.makeText(this, "無法找到報告ID", Toast.LENGTH_SHORT).show();
@@ -114,7 +116,7 @@ public class CarsLogDetail extends AppCompatActivity {
                             law.setText(lawStr);
 
                             // Load image
-                            String photoPath = document.getString("ViolationsPic");
+                            photoPath = document.getString("ViolationsPic");
                             if (photoPath != null && !photoPath.isEmpty()) {
                                 loadImageFromFirebaseStorage(photoPath);
                             }
@@ -140,26 +142,55 @@ public class CarsLogDetail extends AppCompatActivity {
             Toast.makeText(this, "Failed to load image.", Toast.LENGTH_SHORT).show();
         });
     }
-    // 刪除子集合中的所有文件
     private void deleteSubCollection(String reportId) {
+        // 首先删除 violations 子集合中的所有文件
         db.collection("report").document(reportId).collection("violations")
                 .get()
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         for (QueryDocumentSnapshot document : task.getResult()) {
-                            // 刪除每個子文件
+                            // 删除每个子文件
                             document.getReference().delete()
                                     .addOnSuccessListener(aVoid -> {
-                                        Toast.makeText(CarsLogDetail.this, "子集合文件刪除成功", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(CarsLogDetail.this, "刪除成功", Toast.LENGTH_SHORT).show();
                                     })
                                     .addOnFailureListener(e -> {
-                                        Toast.makeText(CarsLogDetail.this, "刪除子集合文件失敗: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(CarsLogDetail.this, "刪除失敗: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                                     });
                         }
-                        // 子集合刪除完畢，刪除父文件
-                        deleteReport(reportId);
+                        // 子集合刪除完畢，刪除父文件和 users_report 中的文件
+                        deleteUsersReport(reportId);  // 删除用户报告
+                        deleteReport(reportId);        // 删除报告
                     } else {
-                        Toast.makeText(CarsLogDetail.this, "獲取子集合文件失敗: " + task.getException(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(CarsLogDetail.this, "獲取失敗: " + task.getException(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
+    // 删除 users_report 中的文件
+    private void deleteUsersReport(String reportId) {
+        db.collection("users_report")
+                .whereEqualTo("report_id", reportId) // 根据 report_id 查询
+                .get()
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        if (task.getResult().isEmpty()) {
+                            Log.d("CarsLogDetail", "No documents found in users_report for report_id: " + reportId);
+                        } else {
+                            Log.d("CarsLogDetail", "Documents found in users_report for report_id: " + reportId);
+                        }
+                        for (QueryDocumentSnapshot document : task.getResult()) {
+                            // 删除与该报告相关的用户报告文件
+                            document.getReference().delete()
+                                    .addOnSuccessListener(aVoid -> {
+                                        Toast.makeText(CarsLogDetail.this, "刪除成功", Toast.LENGTH_SHORT).show();
+                                    })
+                                    .addOnFailureListener(e -> {
+                                        Toast.makeText(CarsLogDetail.this, "删除失敗: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                    });
+                        }
+                    } else {
+                        Toast.makeText(CarsLogDetail.this, "獲取ID失敗: " + task.getException(), Toast.LENGTH_SHORT).show();
                     }
                 });
     }
@@ -169,7 +200,7 @@ public class CarsLogDetail extends AppCompatActivity {
         db.collection("report").document(reportId)
                 .delete()
                 .addOnSuccessListener(aVoid -> {
-                    Toast.makeText(CarsLogDetail.this, "報告刪除成功", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CarsLogDetail.this, "刪除成功", Toast.LENGTH_SHORT).show();
 
                     // 刪除成功後跳轉回 CarsLog 頁面
                     Intent intent = new Intent(CarsLogDetail.this, CarsLog.class);
@@ -179,8 +210,24 @@ public class CarsLogDetail extends AppCompatActivity {
                     finish();
                 })
                 .addOnFailureListener(e -> {
-                    Toast.makeText(CarsLogDetail.this, "刪除報告失敗: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CarsLogDetail.this, "刪除失敗: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                 });
     }
 
+    // 删除 Firebase Storage 中的照片的代码
+    private void deletePhotoFromStorage(String photoPath) {
+        // 创建 StorageReference
+        StorageReference photoRef = FirebaseStorage.getInstance().getReferenceFromUrl(photoPath);
+
+        // 删除文件
+        photoRef.delete()
+                .addOnSuccessListener(aVoid -> {
+                    // 删除成功的操作
+                    Toast.makeText(CarsLogDetail.this, "照片删除成功", Toast.LENGTH_SHORT).show();
+                })
+                .addOnFailureListener(exception -> {
+                    // 删除失败的操作
+                    Toast.makeText(CarsLogDetail.this, "照片删除失败: " + exception.getMessage(), Toast.LENGTH_SHORT).show();
+                });
+    }
 }
