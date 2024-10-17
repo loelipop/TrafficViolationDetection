@@ -84,10 +84,10 @@ public class ReportWebsite extends AppCompatActivity {
 
     //private FusedLocationProviderClient fusedLocationClient;
 
-    private Uri getExternalFileUri(String fileName) {
-        File file = new File("/sdcard/" + fileName);
-        return FileProvider.getUriForFile(this, "fcu.iecs.report.fileprovider", file);
-    }
+//    private Uri getExternalFileUri(String fileName) {
+//        File file = new File("/sdcard/" + fileName);
+//        return FileProvider.getUriForFile(this, "fcu.iecs.report.fileprovider", file);
+//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -243,32 +243,32 @@ public class ReportWebsite extends AppCompatActivity {
                     }, 1000);
 
                     // 延迟触发文件选择
-                    new Handler().postDelayed(() -> {
-                        view.evaluateJavascript("document.getElementById('filename1').click();", null);
-                        view.evaluateJavascript("document.getElementById('filename1').click();", null);
-                    }, 2000);
+//                    new Handler().postDelayed(() -> {
+//                        view.evaluateJavascript("document.getElementById('filename1').click();", null);
+//                        view.evaluateJavascript("document.getElementById('filename1').click();", null);
+//                    }, 2000);
                 }, 3000);
             }
         });
 
-        webview.setWebChromeClient(new WebChromeClient() {
-            @Override
-            public boolean onShowFileChooser(WebView webView, ValueCallback<Uri[]> filePathCallback, FileChooserParams fileChooserParams) {
-                if (mUploadMessageLollipop != null) {
-                    mUploadMessageLollipop.onReceiveValue(null);
-                }
-                mUploadMessageLollipop = filePathCallback;
-
-                // 获取外部文件的 Uri
-                Uri fileUri = getExternalFileUri("IMG_20240529_175342.jpg");
-                if (fileUri != null) {
-                    filePathCallback.onReceiveValue(new Uri[]{fileUri});
-                } else {
-                    filePathCallback.onReceiveValue(null);
-                }
-                return true;
-            }
-        });
+//        webview.setWebChromeClient(new WebChromeClient() {
+//            @Override
+//            public boolean onShowFileChooser(WebView webView, ValueCallback<Uri[]> filePathCallback, FileChooserParams fileChooserParams) {
+//                if (mUploadMessageLollipop != null) {
+//                    mUploadMessageLollipop.onReceiveValue(null);
+//                }
+//                mUploadMessageLollipop = filePathCallback;
+//
+//                // 获取外部文件的 Uri
+//                Uri fileUri = getExternalFileUri("IMG_20240529_175342.jpg");
+//                if (fileUri != null) {
+//                    filePathCallback.onReceiveValue(new Uri[]{fileUri});
+//                } else {
+//                    filePathCallback.onReceiveValue(null);
+//                }
+//                return true;
+//            }
+//        });
 
         webview.loadUrl(url); // 读取 URL 网站
     }

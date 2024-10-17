@@ -42,6 +42,7 @@ public class CarsLogDetail extends AppCompatActivity {
     private Button delete; // Declare delete button
     private String reportId; // Variable for reportId
     private String photoPath;
+    private boolean reportStatus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +66,7 @@ public class CarsLogDetail extends AppCompatActivity {
 
         backbutton.setOnClickListener(v -> finish());
         report.setOnClickListener(v -> {
+            updateReportStatus(reportId, true);
             Intent intent = new Intent(CarsLogDetail.this, ReportWebsite.class);
             startActivity(intent);
         });
@@ -108,6 +110,15 @@ public class CarsLogDetail extends AppCompatActivity {
                             String timeStr = document.getString("Date");
                             String locationStr = document.getString("ViolationsArea") + " " + document.getString("ViolationsStreet") + " " + document.getString("ViolationsAddress");
                             String lawStr = document.getString("Violations");
+                            reportStatus = document.getBoolean("ReportStatus");
+
+                            if (Boolean.TRUE.equals(reportStatus)) {
+                                // ReportStatus 是 true，執行某些操作
+                                report.setVisibility(View.GONE);
+                            } else {
+                                // ReportStatus 是 false 或者是 null，執行其他操作
+                                report.setVisibility(View.VISIBLE);
+                            }
 
                             // Update UI
                             carPlate.setText(carPlateStr);
@@ -228,6 +239,18 @@ public class CarsLogDetail extends AppCompatActivity {
                 .addOnFailureListener(exception -> {
                     // 删除失败的操作
                     Toast.makeText(CarsLogDetail.this, "照片删除失败: " + exception.getMessage(), Toast.LENGTH_SHORT).show();
+                });
+    }
+
+    private void updateReportStatus(String reportId, boolean isReported) {
+        db.collection("report")
+                .document(reportId) // 使用 reportId 来定位特定文档
+                .update("ReportStatus", isReported) // 替换 "isReported" 为你实际的布尔字段名
+                .addOnSuccessListener(aVoid -> {
+                    Toast.makeText(CarsLogDetail.this, "狀態更新成功。", Toast.LENGTH_SHORT).show();
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(CarsLogDetail.this, "狀態更新失敗: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                 });
     }
 }
