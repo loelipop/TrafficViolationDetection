@@ -69,6 +69,7 @@ public class CarsLogDetail extends AppCompatActivity {
             updateReportStatus(reportId, true);
             Intent intent = new Intent(CarsLogDetail.this, ReportWebsite.class);
             startActivity(intent);
+            finish();
         });
 
         delete.setOnClickListener(v -> {

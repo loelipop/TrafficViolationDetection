@@ -10,6 +10,8 @@ constraintlayout = "2.1.4"
 playServicesLocation = "21.3.0"
 
 [libraries]
+camera-camera2 = { module = "androidx.camera:camera-camera2" }
+camera-interop = { module = "androidx.camera:camera-interop" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }

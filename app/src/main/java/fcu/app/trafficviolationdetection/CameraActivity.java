@@ -3,6 +3,8 @@ package fcu.app.trafficviolationdetection;
 import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
+import android.hardware.camera2.CameraMetadata;
+import android.hardware.camera2.CaptureRequest;
 import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
@@ -18,7 +20,12 @@ import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.camera.core.Camera;
+import androidx.camera.core.CameraControl;
 import androidx.camera.core.CameraSelector;
+import androidx.camera.core.FocusMeteringAction;
+import androidx.camera.core.MeteringPoint;
+import androidx.camera.core.MeteringPointFactory;
 import androidx.camera.core.Preview;
 import androidx.camera.lifecycle.ProcessCameraProvider;
 import androidx.camera.video.MediaStoreOutputOptions;
@@ -126,6 +133,7 @@ public class CameraActivity extends AppCompatActivity {
         };
         btnRecord.setOnClickListener(listener);
     }
+
     private void startCamera() {
         ListenableFuture<ProcessCameraProvider> cameraProviderFuture = ProcessCameraProvider.getInstance(this);
 
