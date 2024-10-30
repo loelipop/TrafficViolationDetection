@@ -68,6 +68,7 @@ public class CarsLogDetail extends AppCompatActivity {
         report.setOnClickListener(v -> {
             updateReportStatus(reportId, true);
             Intent intent = new Intent(CarsLogDetail.this, ReportWebsite.class);
+            intent.putExtra("reportId", reportId);
             startActivity(intent);
             finish();
         });

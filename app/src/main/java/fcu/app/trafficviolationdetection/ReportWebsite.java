@@ -73,6 +73,7 @@ public class ReportWebsite extends AppCompatActivity {
     String Street;
     String ChtGender;
     String Choice;
+    String reportId;
     private int totalDocumentsToFetch = 0;
     private int fetchedDocumentsCount = 0;
 
@@ -105,6 +106,8 @@ public class ReportWebsite extends AppCompatActivity {
         webSettings = webview.getSettings();
         webSettings.setJavaScriptEnabled(true); // 开启 JavaScript 功能
 
+        reportId = getIntent().getStringExtra("reportId");
+
         //fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -112,6 +115,7 @@ public class ReportWebsite extends AppCompatActivity {
         } else {
             getLocationAndLoadWebView();
         }
+
         fetchDataFromUsersReport();
     }
 
@@ -157,9 +161,9 @@ public class ReportWebsite extends AppCompatActivity {
                 isFormFilled = true;
 
                 // 获取当前日期和时间
-                Date currentDate = new Date();
+                //Date currentDate = new Date();
                 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault());
-                Date = dateFormat.format(currentDate);
+                //Date = dateFormat.format(currentDate);
 
                 if (ChtGender == null || ChtGender.equals("男")) {
                     gender = 1;
@@ -290,6 +294,7 @@ public class ReportWebsite extends AppCompatActivity {
 
     private void fetchDataFromUsersReport() {
         db.collection("users_report")
+                .whereEqualTo("report_id", reportId) // 根据 report_id 查询
                 .get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
@@ -298,13 +303,11 @@ public class ReportWebsite extends AppCompatActivity {
                         Log.d("UserReport", "Total reports to fetch: " + totalDocumentsToFetch);
                         for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
                             String userId = document.getString("user_id");
-                            String reportId = document.getString("report_id");
-
                             Log.d("UserReport", "Fetching userId: " + userId + ", reportId: " + reportId);
                             // Fetch user details
-                            fetchUserDetails(userId);
+                            fetchUserDetails(userId); // 使用 user_id 获取用户详细信息
                             // Fetch report details
-                            fetchReportDetails(reportId);
+                            fetchReportDetails(reportId); // 使用 report_id 获取报告详细信息
                         }
                     }
                 })
