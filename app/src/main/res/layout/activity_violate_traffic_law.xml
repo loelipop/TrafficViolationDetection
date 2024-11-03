@@ -25,14 +25,6 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/Point1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="違規記【1】點："
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="#100F0F" />
-
-            <TextView
                 android:id="@+id/Law1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -56,14 +48,6 @@
                 android:textColor="#100F0F" />
 
             <TextView
-                android:id="@+id/Law4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="違規減速、臨時停車或停車"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="#100F0F" />
-
-            <TextView
                 android:id="@+id/Law5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -72,66 +56,10 @@
                 android:textColor="#100F0F" />
 
             <TextView
-                android:id="@+id/Law6"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="汽車駕駛人行車速度超過規定之最高時速，或低於規定之最低時速。"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="#100F0F" />
-
-            <TextView
-                android:id="@+id/Law7"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="汽車駕駛人駕駛汽車行近未設行車管制號誌之行人穿越道，不減速慢行。 "
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="#100F0F" />
-
-            <TextView
-                android:id="@+id/Law8"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="在多車道不依規定駕車。 "
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="#100F0F" />
-
-            <TextView
                 android:id="@+id/Law9"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="任意駛出邊線，或任意跨越兩條車道行駛。 "
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="#100F0F" />
-
-            <TextView
-                android:id="@+id/Point2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="違規記【2】點："
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="#100F0F" />
-
-            <TextView
-                android:id="@+id/Law10"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="裝載貨物超過規定之長度、寬度、高度"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="#100F0F" />
-
-            <TextView
-                android:id="@+id/point3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="違規記【3】點："
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="#100F0F" />
-
-            <TextView
-                android:id="@+id/Law11"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="在道路上蛇行，或以其他危險方式駕車"
+                android:text="機車駕駛人或附載座人未依規定戴安全帽者。"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="#100F0F" />
 
