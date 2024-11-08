@@ -236,7 +236,7 @@ public class CarsLogDetail extends AppCompatActivity {
         photoRef.delete()
                 .addOnSuccessListener(aVoid -> {
                     // 删除成功的操作
-                    Toast.makeText(CarsLogDetail.this, "照片删除成功", Toast.LENGTH_SHORT).show();
+                    Log.d("CarsLogDetail", "照片删除成功");
                 })
                 .addOnFailureListener(exception -> {
                     // 删除失败的操作
@@ -249,7 +249,7 @@ public class CarsLogDetail extends AppCompatActivity {
                 .document(reportId) // 使用 reportId 来定位特定文档
                 .update("ReportStatus", isReported) // 替换 "isReported" 为你实际的布尔字段名
                 .addOnSuccessListener(aVoid -> {
-                    Toast.makeText(CarsLogDetail.this, "狀態更新成功。", Toast.LENGTH_SHORT).show();
+                    Log.d("CarsLogDetail", "狀態更新成功 ");
                 })
                 .addOnFailureListener(e -> {
                     Toast.makeText(CarsLogDetail.this, "狀態更新失敗: " + e.getMessage(), Toast.LENGTH_SHORT).show();

@@ -11,6 +11,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
         android:scrollbars="none"
@@ -27,31 +28,31 @@
             <TextView
                 android:id="@+id/Law1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="87dp"
                 android:text="汽車行駛於一般道路、高速公路、快速公路，不遵使用限制、禁止、行車管制及管理事項之管制規則而有下列行為者："
                 android:textColor="#100F0F" />
 
             <TextView
                 android:id="@+id/Law2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="未依規定行駛車道。"
+                android:layout_height="56dp"
+                android:text="1.未依規定行駛車道。"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="#100F0F" />
 
             <TextView
                 android:id="@+id/Law3"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="不依規定使用燈光。"
+                android:layout_height="56dp"
+                android:text="2.不依規定使用燈光。"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="#100F0F" />
 
             <TextView
                 android:id="@+id/Law5"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="未依標誌、標線、號誌指示行車。"
+                android:layout_height="56dp"
+                android:text="3.未依標誌、標線、號誌指示行車。"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="#100F0F" />
 
@@ -59,7 +60,7 @@
                 android:id="@+id/Law9"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="機車駕駛人或附載座人未依規定戴安全帽者。"
+                android:text="4.機車駕駛人或附載座人未依規定戴安全帽者。"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="#100F0F" />
 
