@@ -1,7 +1,9 @@
 package fcu.app.trafficviolationdetection;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -66,11 +69,28 @@ public class CarsLogDetail extends AppCompatActivity {
 
         backbutton.setOnClickListener(v -> finish());
         report.setOnClickListener(v -> {
-            updateReportStatus(reportId, true);
-            Intent intent = new Intent(CarsLogDetail.this, ReportWebsite.class);
-            intent.putExtra("reportId", reportId);
-            startActivity(intent);
-            finish();
+            //updateReportStatus(reportId, true);
+            new AlertDialog.Builder(this)
+                    .setTitle("確定資料正確")
+                    .setMessage("前往台中交通違規檢舉網站。")
+                    .setPositiveButton("前往網站", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            // Go to website
+                            updateReportStatus(reportId, true);
+                            Intent intent = new Intent(CarsLogDetail.this, ReportWebsite.class);
+                            intent.setData(android.net.Uri.fromParts("package", getPackageName(), null));
+                            intent.putExtra("reportId", reportId);
+                            startActivity(intent);
+                            finish();
+                        }
+                    })
+                    .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            finish(); // Close the app if they cancel
+                        }
+                    })
+                    .setCancelable(false)
+                    .show();
         });
 
         delete.setOnClickListener(v -> {
