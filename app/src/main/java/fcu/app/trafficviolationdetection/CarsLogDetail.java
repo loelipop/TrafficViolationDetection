@@ -71,8 +71,8 @@ public class CarsLogDetail extends AppCompatActivity {
         report.setOnClickListener(v -> {
             //updateReportStatus(reportId, true);
             new AlertDialog.Builder(this)
-                    .setTitle("確定資料正確")
-                    .setMessage("前往台中交通違規檢舉網站。")
+                    .setTitle("注意事項")
+                    .setMessage("請在交通檢舉網站確認所有資訊均正確無誤。")
                     .setPositiveButton("前往網站", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             // Go to website
@@ -82,11 +82,6 @@ public class CarsLogDetail extends AppCompatActivity {
                             intent.putExtra("reportId", reportId);
                             startActivity(intent);
                             finish();
-                        }
-                    })
-                    .setNegativeButton("取消", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            finish(); // Close the app if they cancel
                         }
                     })
                     .setCancelable(false)
