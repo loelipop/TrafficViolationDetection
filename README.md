@@ -9,7 +9,7 @@
 資料庫：Firebase Firestore  
 身份驗證：Firebase Authentication  
 
-## 功能介紹
+## 主要功能介紹
 **注：本app需要注冊實名帳號，使用者必須擁有中華民國身份證或是居留證方可注冊帳號**  
 
 ### 違規偵測
