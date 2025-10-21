@@ -22,7 +22,7 @@
 
 ### 違規檢舉  
 主頁點擊“違規車輛偵測記錄”后，會顯示已被系統偵測的違規車輛列表    
-<img src="https://github.com/loelipop/TrafficViolationDetection/blob/8089516565021632add7f0ce1f540d3ddf5b33a3/%E9%81%95%E8%A6%8F%E7%B4%80%E9%8C%84-%E5%B7%B2%E6%AA%A2%E8%88%89%E5%88%97%E8%A1%A8.jpg" alt="image_alt" width="300" height="400">
+<img src="https://github.com/loelipop/TrafficViolationDetection/blob/8089516565021632add7f0ce1f540d3ddf5b33a3/%E9%81%95%E8%A6%8F%E7%B4%80%E9%8C%84-%E5%B7%B2%E6%AA%A2%E8%88%89%E5%88%97%E8%A1%A8.jpg" alt="image_alt" width="300" height="500">
 
 點擊想要檢舉的車輛可以查看具體違規事項和地點，若判斷想要檢舉可點擊“檢舉”即可跳轉到臺中市交通違規檢舉網頁，若不想則點擊“刪除”即可刪除記錄  
 ![image_alt](https://github.com/loelipop/TrafficViolationDetection/blob/8089516565021632add7f0ce1f540d3ddf5b33a3/%E9%81%95%E8%A6%8F%E8%BB%8A%E8%BC%9B%E5%81%B5%E6%B8%AC%E7%B4%80%E9%8C%84-%E6%9C%AA%E6%AA%A2%E8%88%89%E7%9A%84%E7%95%AB%E9%9D%A2.jpg)  
