@@ -14,7 +14,7 @@
 
 ### 違規偵測
 主頁點擊“違規偵測”后，打開手機後鏡頭，點擊“開始/結束錄影”作爲影像的起始與結束，并同時記錄手機的實時經緯度  
-![image_alt](https://github.com/loelipop/TrafficViolationDetection/blob/8089516565021632add7f0ce1f540d3ddf5b33a3/%E9%8C%84%E5%BD%B1%E4%B8%AD.jpg)  ![image_alt](https://github.com/loelipop/TrafficViolationDetection/blob/8089516565021632add7f0ce1f540d3ddf5b33a3/%E9%8C%84%E5%BD%B1%E4%B8%AD.jpg)
+![image_alt](https://github.com/loelipop/TrafficViolationDetection/blob/8089516565021632add7f0ce1f540d3ddf5b33a3/%E9%8C%84%E5%BD%B1%E4%B8%AD.jpg)  ![image_alt](https://github.com/loelipop/TrafficViolationDetection/blob/8089516565021632add7f0ce1f540d3ddf5b33a3/%E9%8C%84%E5%BD%B1%E5%89%8D.jpg)
 
 結束錄影后影像與經緯度記錄會直接上傳到資料庫，後臺辨識系統即刻開始便是是否有違規車輛  
 如有違規車輛，系統將會上傳該車輛資訊與照片至資料庫  
